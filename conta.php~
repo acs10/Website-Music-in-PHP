@@ -1,0 +1,96 @@
+<?php
+
+session_start();
+
+include "conect.php";
+// cria a instrução SQL que vai selecionar os dados
+$query = sprintf("SELECT * FROM posts LIMIT 3");
+// executa a query
+$dados = mysql_query($query, $con) or die(mysql_error());
+
+
+?>
+
+ <html>
+	<head>
+		<title>AGRMusic</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen">   
+		<script src="js/jquery-1.6.3.min.js" type="text/javascript"></script>
+		<script src="js/cufon-yui.js" type="text/javascript"></script>
+		<script src="js/cufon-replace.js" type="text/javascript"></script>
+	  
+		
+		
+<!--==============================header=================================-->
+			<header>
+				<div class="main">
+					<div class="bg-1">
+						<h1><a href="index.php">AGRMusic</a></h1>
+					</div>
+					<nav>
+						<div class="menu-bg-tail">
+							<div class="menu-bg">
+								<div class="container_12">
+									<div class="grid_12">
+										<ul class="menu">
+											<li class="item"><a href="index.php">Home</a></li>
+											<li><a href="musicas.php">Musicas</a></li>
+											<li><a href="clipes.php">Clipes</a></li>
+											<li><a href="letras.php">Letras</a></li>
+							
+											<li>
+										<?php
+											 if(isset($_SESSION['nome'])){
+									echo "<a>".$_SESSION['nome'] . " | </a> <a href='sair.php'>Sair</a>"; 
+										}else{ echo "<a href='login.php'>Login</a>"; }
+									      ?>
+											</li>
+										</ul>
+										<div class="clear"></div>
+									</div>
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+					</nav>
+					
+					</div>
+				</div>
+			</header>
+ 
+
+				</div>
+				<div class="block"></div>
+			</section>
+		</div>
+<!--==============================footer=================================-->
+		<footer>
+			<div class="main">
+				<div class="footer-bg">
+					<div class="container_12">
+						<div class="wrapper">
+							<div class="grid_12">
+								<div class="footer-padding">
+									<div class="wrapper">
+										
+										<ul class="list-services">
+											<li><a class="tooltips n-1" title="Twitter" href="#"></a></li>
+											<li><a class="tooltips n-2" title="Facebook" href="#"></a></li>
+											<li class="last"><a class="tooltips n-3" title="Youtube" href="#"></a></li>
+										</ul>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script type="text/javascript"> Cufon.now(); </script>
+	</body>
+</html>
